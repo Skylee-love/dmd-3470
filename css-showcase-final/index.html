@@ -1,0 +1,211 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS Scroll Snap Showcase</title>
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+ 
+  
+  <!-- Progress bar -->
+  <div class="progress-wrapper">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- Hero (not part of snap container so it feels like an intro screen) -->
+  <header class="hero">
+    <h1>CSS Scroll Snap</h1>
+    <p>Designing controlled, story‑driven scrolling experiences with modern CSS — no JavaScript required for the core effect.</p>
+  </header>
+
+  <!-- Main scroll-snap experience -->
+  <main class="snap-container" id="snapContainer">
+    
+
+    <!-- ABOUT -->
+    <section class="snap-section about">
+      <h2>What Is CSS Scroll Snap?</h2>
+      <p>
+        CSS Scroll Snap is a layout feature that lets you define “snap points” along a scrollable container.
+        Instead of stopping at random positions, the scroll locks into place at these points, similar to slides
+        in a presentation or pages in a mobile app.
+      </p>
+      <p>
+        This matters because it gives designers more control over how content is consumed. It’s especially powerful
+        for storytelling layouts, product showcases, and any experience where each section should feel intentional
+        and self‑contained.
+      </p>
+    </section>
+
+    <!-- USE CASES -->
+    <section class="snap-section usecases">
+  <h2>Real‑World Use Cases</h2>
+
+  <div class="usecases-content">
+    <div class="usecases-text">
+      <p>CSS Scroll Snap is already used in many modern interfaces, including:</p>
+      <ul>
+        <li>Product carousels on e‑commerce sites</li>
+        <li>Full‑screen storytelling pages and scrollytelling experiences</li>
+        <li>Mobile onboarding flows and app‑like interfaces</li>
+        <li>Horizontal galleries for images, videos, or case studies</li>
+        <li>Portfolio sections where each project gets a dedicated “slide”</li>
+      </ul>
+      <p>Below is a real example: a horizontally scrollable card carousel built entirely with CSS Scroll Snap.</p>
+    </div>
+
+    <img src="img/gif-poland.gif" alt="gif of website" class="usecases-gif">
+  </div>
+</section>
+
+    <!-- HORIZONTAL DEMO -->
+    <section class="snap-section horizontal-demo">
+      <div class="horizontal-demo-inner">
+        <h2>Horizontal Scroll Snap Demo</h2>
+
+        <div class="horizontal-scroll">
+          <article class="card">
+            <div class="card-title">Media Gallery</div>
+            <div class="card-text">Scroll through images or videos with precise snapping.</div>
+          </article>
+
+          <article class="card">
+            <img src="img/Almarts27 Hamster.jpg" alt="hampter" class="card-img">
+          </article>
+
+          <article class="card">
+            <img src="img/download (2).jpg" alt="hampter" class="card-img">
+          </article>
+
+          <article class="card">
+            <img src="img/“Erm achually” ahh Hampter.jpg" alt="Example" class="card-img">
+          </article>
+
+
+          <article class="card">
+            <img src="img/download (1).jpg" alt="Example" class="card-img">
+          </article>
+
+          
+          <article class="card">
+            <img src="img/almarts27 hamster sticker.jpg" alt="Example" class="card-img">
+          </article>
+
+             <article class="card">
+            <img src="img/cute lil hammy eating a cookie 🍪🍪.jpg" alt="Example" class="card-img">
+          </article>
+          
+             <article class="card">
+            <img src="img/Hamster reaction pic_.jpg" alt="Example" class="card-img">
+          </article>
+          
+        </div>
+
+        <p>Drag or swipe left/right to feel the snap behavior in action.</p>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="snap-section process">
+  <h2>How This Page Was Built</h2>
+
+  <div class="process-content">
+    <div class="process-text">
+      <ol>
+        <li>Researched CSS Scroll Snap using MDN, web.dev, and CSS‑Tricks.</li>
+        <li>Planned the layout: one hero, then a vertical snap container with full‑screen sections.</li>
+        <li>Implemented vertical snapping with <code>scroll-snap-type: y mandatory</code> on the main container.</li>
+        <li>Created a horizontal demo using <code>overflow-x: auto</code> and <code>scroll-snap-type: x mandatory</code>.</li>
+        <li>Styled cards with flexbox, fixed widths, and <code>scroll-snap-align: start</code> to ensure snapping.</li>
+        <li>Added a scroll progress bar and fade‑in animations using a small amount of JavaScript.</li>
+      </ol>
+
+      <p>
+        To recreate this, you can copy this structure, adjust the colors and content, and experiment with different
+        snap points and layouts.
+      </p>
+    </div>
+
+    <img src="img/horizontal-scroll-pic.png" alt="Process code" class="process-img">
+  </div>
+</section>
+
+    <!-- BROWSER SUPPORT -->
+    <section class="snap-section support">
+      <h2>Browser Support & Fallbacks</h2>
+      <p>CSS Scroll Snap is supported in all major modern browsers, including:</p>
+      <ul>
+        <li>Chrome</li>
+        <li>Firefox</li>
+        <li>Safari</li>
+        <li>Edge</li>
+      </ul>
+<iframe 
+  src="https://caniuse.bitsofco.de/embed/index.html?feat=css-snappoints&periods=future_1,current,past_1,past_2"
+  frameborder="0"
+  width="100%"
+  height="100%">
+</iframe>
+
+      <p>
+        Older browsers that don’t support Scroll Snap will simply ignore the snap properties and fall back to
+        normal scrolling. This means no hard breakage, just a less enhanced experience. For most use cases,
+        no polyfills are required.
+      </p>
+
+      <p>A polyfill is a piece of code (usually JavaScript) used in web development to provide modern functionality to older browsers that do not natively support it.</p>
+    </section>
+
+    <!-- RESOURCES -->
+    <section class="snap-section resources">
+      <h2>Resources & Citations</h2>
+      <ul>
+        <li>MDN Web Docs — “CSS Scroll Snap”</li>
+        <li>web.dev — “Well‑Controlled Scrolling with CSS Scroll Snap”</li>
+        <li>CSS‑Tricks — “Practical CSS Scroll Snap”</li>
+        <li>Figma — for initial layout and section planning</li>
+        <li>Browser DevTools — for testing scroll behavior and responsiveness</li>
+        <li>Google Fonts — for typography selection</li>
+        <li>CanICode - Embed Feature</li>
+        <li>Pinterest - Hampter Photos</li>
+        <li>ezgif.com - GIF Editor</li>
+        <li>Where Is Poland? Website - <a href="https://whereispoland.com/en/where-is-poland/4" target="_blank" rel="noopener noreferrer">https://whereispoland.com/en/where-is-poland/4</a></li>
+      </ul>
+      <p>
+        These resources informed both the technical implementation and the design decisions on this page. They also added to its charm!
+      </p>
+    </section>
+
+  </main>
+
+
+  <script src="js/app.js"></script>
+
+
+</body>
+
+</html>

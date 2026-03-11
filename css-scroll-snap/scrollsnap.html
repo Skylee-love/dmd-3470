@@ -1,0 +1,376 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS Scroll Snap Showcase</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-hero: linear-gradient(135deg, #4f46e5, #7c3aed);
+      --text-main: #1f2933;
+      --accent: #4f46e5;
+      --progress-bg: rgba(255, 255, 255, 0.25);
+      --progress-fill: #facc15;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f5f5f7;
+      color: var(--text-main);
+    }
+
+    /* PROGRESS BAR */
+    .progress-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: var(--progress-bg);
+      z-index: 1000;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: var(--progress-fill);
+      transition: width 0.15s linear;
+    }
+
+    /* HERO */
+    .hero {
+      height: 100vh;
+      background: var(--bg-hero);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 5vw, 3.8rem);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero p {
+      max-width: 600px;
+      font-size: 1.05rem;
+      opacity: 0.9;
+    }
+
+    /* MAIN SCROLL AREA */
+    .snap-container {
+      height: 100vh;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+      scroll-behavior: smooth;
+      background: #f5f5f7;
+    }
+
+    .snap-section {
+      height: 100vh;
+      scroll-snap-align: start;
+      padding: 4rem 8vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.25rem;
+      line-height: 1.7;
+      position: relative;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+
+    .snap-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .snap-section h2 {
+      text-align: center;
+      font-size: clamp(2rem, 3vw, 2.4rem);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #111827;
+    }
+
+    .snap-section p,
+    .snap-section li {
+      font-size: 0.98rem;
+    }
+
+    .snap-section ul,
+    .snap-section ol {
+      padding-left: 1.2rem;
+    }
+
+    /* COLOR THEMES */
+    .about { background: #e0f2fe; }
+    .usecases { background: #fef9c3; }
+    .horizontal-demo { background: #fce7f3; }
+    .process { background: #ede9fe; }
+    .support { background: #dcfce7; }
+    .resources { background: #ffe4e6; }
+
+    /* HORIZONTAL SCROLL AREA */
+    .horizontal-demo-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .horizontal-scroll {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 1.5rem 0 0.5rem;
+      scroll-snap-type: x mandatory;
+      scroll-padding: 2rem;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 16px;
+    }
+
+    .horizontal-scroll::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .horizontal-scroll::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.05);
+      border-radius: 999px;
+    }
+
+    .horizontal-scroll::-webkit-scrollbar-thumb {
+      background: rgba(79, 70, 229, 0.6);
+      border-radius: 999px;
+    }
+
+    .card {
+      flex: 0 0 260px;
+      max-width: 260px;
+      height: 170px;
+      background: white;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      scroll-snap-align: start;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .card-title {
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+      color: #111827;
+    }
+
+    .card-text {
+      font-size: 0.9rem;
+      opacity: 0.85;
+    }
+
+    .horizontal-demo p {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    /* SMALL SCREEN TWEAKS */
+    @media (max-width: 768px) {
+      .snap-section {
+        padding: 3rem 7vw;
+      }
+
+      .card {
+        flex: 0 0 75%;
+        max-width: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Progress bar -->
+  <div class="progress-wrapper">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- Hero (not part of snap container so it feels like an intro screen) -->
+  <header class="hero">
+    <h1>CSS Scroll Snap</h1>
+    <p>Designing controlled, story‑driven scrolling experiences with modern CSS — no JavaScript required for the core effect.</p>
+  </header>
+
+  <!-- Main scroll-snap experience -->
+  <main class="snap-container" id="snapContainer">
+
+    <!-- ABOUT -->
+    <section class="snap-section about">
+      <h2>What Is CSS Scroll Snap?</h2>
+      <p>
+        CSS Scroll Snap is a layout feature that lets you define “snap points” along a scrollable container.
+        Instead of stopping at random positions, the scroll locks into place at these points, similar to slides
+        in a presentation or pages in a mobile app.
+      </p>
+      <p>
+        This matters because it gives designers more control over how content is consumed. It’s especially powerful
+        for storytelling layouts, product showcases, and any experience where each section should feel intentional
+        and self‑contained.
+      </p>
+    </section>
+
+    <!-- USE CASES -->
+    <section class="snap-section usecases">
+      <h2>Real‑World Use Cases</h2>
+      <p>CSS Scroll Snap is already used in many modern interfaces, including:</p>
+      <ul>
+        <li>Product carousels on e‑commerce sites</li>
+        <li>Full‑screen storytelling pages and scrollytelling experiences</li>
+        <li>Mobile onboarding flows and app‑like interfaces</li>
+        <li>Horizontal galleries for images, videos, or case studies</li>
+        <li>Portfolio sections where each project gets a dedicated “slide”</li>
+      </ul>
+      <p>Below is a real example: a horizontally scrollable card carousel built entirely with CSS Scroll Snap.</p>
+    </section>
+
+    <!-- HORIZONTAL DEMO -->
+    <section class="snap-section horizontal-demo">
+      <div class="horizontal-demo-inner">
+        <h2>Horizontal Scroll Snap Demo</h2>
+
+        <div class="horizontal-scroll">
+          <article class="card">
+            <div class="card-title">Product Carousel</div>
+            <div class="card-text">Swipe through featured products one card at a time.</div>
+          </article>
+
+          <article class="card">
+            <div class="card-title">Onboarding Screens</div>
+            <div class="card-text">Guide users step‑by‑step with snap‑based panels.</div>
+          </article>
+
+          <article class="card">
+            <div class="card-title">Case Studies</div>
+            <div class="card-text">Show each project as a focused, scrollable “slide”.</div>
+          </article>
+
+          <article class="card">
+            <div class="card-title">Media Gallery</div>
+            <div class="card-text">Scroll through images or videos with precise snapping.</div>
+          </article>
+        </div>
+
+        <p>Drag or swipe left/right to feel the snap behavior in action.</p>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="snap-section process">
+      <h2>How This Page Was Built</h2>
+      <ol>
+        <li>Researched CSS Scroll Snap using MDN, web.dev, and CSS‑Tricks.</li>
+        <li>Planned the layout: one hero, then a vertical snap container with full‑screen sections.</li>
+        <li>Implemented vertical snapping with <code>scroll-snap-type: y mandatory</code> on the main container.</li>
+        <li>Created a horizontal demo using <code>overflow-x: auto</code> and <code>scroll-snap-type: x mandatory</code>.</li>
+        <li>Styled cards with flexbox, fixed widths, and <code>scroll-snap-align: start</code> to ensure snapping.</li>
+        <li>Added a scroll progress bar and fade‑in animations using a small amount of JavaScript.</li>
+      </ol>
+      <p>
+        To recreate this, you can copy this structure, adjust the colors and content, and experiment with different
+        snap points and layouts.
+      </p>
+    </section>
+
+    <!-- BROWSER SUPPORT -->
+    <section class="snap-section support">
+      <h2>Browser Support & Fallbacks</h2>
+      <p>CSS Scroll Snap is supported in all major modern browsers, including:</p>
+      <ul>
+        <li>Chrome</li>
+        <li>Firefox</li>
+        <li>Safari</li>
+        <li>Edge</li>
+      </ul>
+      <p>
+        Older browsers that don’t support Scroll Snap will simply ignore the snap properties and fall back to
+        normal scrolling. This means no hard breakage — just a less enhanced experience. For most use cases,
+        no polyfills are required.
+      </p>
+    </section>
+
+    <!-- RESOURCES -->
+    <section class="snap-section resources">
+      <h2>Resources & Citations</h2>
+      <ul>
+        <li>MDN Web Docs — “CSS Scroll Snap”</li>
+        <li>web.dev — “Well‑Controlled Scrolling with CSS Scroll Snap”</li>
+        <li>CSS‑Tricks — “Practical CSS Scroll Snap”</li>
+        <li>Figma — for initial layout and section planning</li>
+        <li>Browser DevTools — for testing scroll behavior and responsiveness</li>
+      </ul>
+      <p>
+        These resources informed both the technical implementation and the design decisions on this page.
+      </p>
+    </section>
+
+  </main>
+
+  <script>
+    // Progress bar tied to the snap container
+    const snapContainer = document.getElementById("snapContainer");
+    const progressBar = document.getElementById("progressBar");
+
+    function updateProgress() {
+      const scrollTop = snapContainer.scrollTop;
+      const scrollHeight = snapContainer.scrollHeight - snapContainer.clientHeight;
+      const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+      progressBar.style.width = progress + "%";
+    }
+
+    snapContainer.addEventListener("scroll", updateProgress);
+
+    // Fade-in sections when they enter view
+    const sections = document.querySelectorAll(".snap-section");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      {
+        root: snapContainer,
+        threshold: 0.3,
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  </script>
+</body>
+</html>
