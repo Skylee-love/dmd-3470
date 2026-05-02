@@ -2,100 +2,207 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>App Landing Page</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Merch Mania is a marketplace app for people who want to buy and sell fashion merchandise.">
+  <title>Merch Mania | Sell Your Style</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ingrid+Darling&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ingrid+Darling&family=Nunito:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <header class="nav">
-    <div class="logo">Merch Mania</div>
-    <nav>
+    <a class="logo" href="#home">Merch Mania</a>
+
+    <nav aria-label="Main navigation">
       <a href="#home">Home</a>
       <a href="#features">Features</a>
-      <a href="#works">How it Works</a>
+      <a href="#works">How It Works</a>
       <a href="#pricing">Pricing</a>
       <a href="#review">Review</a>
     </nav>
   </header>
 
-  <section id="home" class="hero">
-    <div>
-      <h1>An App for Your Fashion Business</h1>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-      <a class="btn" href="#">Download App</a>
-      <a class="btn secondary" href="#features">Discover More</a>
-    </div>
-    <div class="phone">App Preview</div>
-  </section>
+  <main>
+    <section id="home" class="hero section-animate">
+      <div class="hero-content">
+        <p class="eyebrow">Buy. Sell. Style.</p>
+        <h1>An App for Your Fashion Business</h1>
+        <p>
+          Merch Mania helps creators, students, collectors, and fashion lovers sell merch,
+          vintage pieces, and custom drops from one simple marketplace.
+        </p>
 
-  <section id="features" class="section">
-    <h2>Awesome Apps Features</h2>
-    <p class="intro">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-    <div class="cards">
-      <div class="card"><h3>Design & Branding</h3><p>Lorem Ipsum is simply dummy text.</p></div>
-      <div class="card"><h3>Fully Secured</h3><p>Lorem Ipsum is simply dummy text.</p></div>
-      <div class="card"><h3>Easy to Edit</h3><p>Lorem Ipsum is simply dummy text.</p></div>
-    </div>
-  </section>
+        <div class="button-row">
+          <a class="btn" href="#pricing">Download App</a>
+          <a class="btn secondary" href="#features">Discover More</a>
+        </div>
+      </div>
 
-  <section id="works" class="section alt">
-    <h2>How does this App Work?</h2>
-    <div class="cards">
-      <div class="card"><h3>Make a Profile for your Business</h3><p>Create your account in minutes.</p></div>
-      <div class="card"><h3>Download it for free</h3><p>Install and start using instantly.</p></div>
-      <div class="card"><h3>Enjoy this App</h3><p>Manage everything from one place.</p></div>
-    </div>
-  </section>
+      <div class="phone">
+  <picture>
+    <source srcset="assets/iphone-preview-1.png" media="(min-width: 768px)">
+    <img 
+      src="assets/iphone-preview-1.png" 
+      alt="Merch Mania app showing product listings"
+      width="450"
+      height="800"
+      loading="eager"
+    >
+  </picture>
+</div>
+    </section>
 
-  <section class="split">
-    <div class="phone small">Data</div>
-    <div>
-      <h2>Easy to Manage Your All Data by This App</h2>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-      <a class="btn" href="#">Read More</a>
-    </div>
-  </section>
+    <section id="features" class="section section-animate">
+      <div class="section-heading">
+        <p class="eyebrow">Features</p>
+        <h2>Awesome App Features</h2>
+        <p class="intro">
+          Everything you need to list, promote, and sell your merch online.
+        </p>
+      </div>
 
-  <section class="split reverse">
-    <div>
-      <h2>Responsive Design for All Devices with Quality</h2>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-      <a class="btn" href="#">Read More</a>
-    </div>
-    <div class="phone small">Responsive</div>
-  </section>
+      <div class="cards">
+        <article class="card">
+          <h3>Custom Storefronts</h3>
+          <p>Create a branded profile that shows off your style, drops, and best-selling pieces.</p>
+        </article>
 
-  <section class="section video">
-    <h2>Watch a Quick Tutorial</h2>
-    <button id="playBtn">Play Video</button>
-  </section>
+        <article class="card">
+          <h3>Secure Selling</h3>
+          <p>Build trust with buyer profiles, clear listings, and a smooth checkout experience.</p>
+        </article>
 
-  <section id="pricing" class="section">
-    <h2>Choose your plan</h2>
-    <div class="cards pricing">
-      <div class="card"><h3>Starter</h3><h2>Free</h2><p>Per Month</p><button>Start Now</button></div>
-      <div class="card featured"><h3>Premium</h3><h2>$2.00</h2><p>Per Month</p><button>Start Now</button></div>
-      <div class="card"><h3>Pro</h3><h2>$7.00</h2><p>Per Month</p><button>Start Now</button></div>
-    </div>
-  </section>
+        <article class="card">
+          <h3>Easy Listings</h3>
+          <p>Upload photos, add prices, write descriptions, and publish merch in minutes.</p>
+        </article>
+      </div>
+    </section>
 
-  <section id="review" class="section alt">
-    <h2>User Review</h2>
-    <p class="quote">“Lorem ipsum dolor sit amet, consectetur adipiscing elit.”</p>
-    <strong>– Michel Strac</strong>
-  </section>
+    <section id="works" class="section alt section-animate">
+      <div class="section-heading">
+        <p class="eyebrow">Process</p>
+        <h2>How Does This App Work?</h2>
+      </div>
 
-  <section class="cta">
-    <h2>Let’s start using today</h2>
-    <a class="btn" href="#">Download App</a>
-  </section>
+      <div class="cards">
+        <article class="card">
+          <h3>Make a Profile</h3>
+          <p>Create a seller profile for your brand, closet, club, team, or small business.</p>
+        </article>
 
-  <footer>Copyright © 2026 Merch Mania. All rights reserved.</footer>
+        <article class="card">
+          <h3>Post Your Merch</h3>
+          <p>Add product photos, size details, prices, and shipping information.</p>
+        </article>
+
+        <article class="card">
+          <h3>Start Selling</h3>
+          <p>Connect with buyers, manage orders, and grow your fashion business.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="split section-animate">
+      <div class="phone small">
+        <picture>
+          <source srcset="images/data-large.webp" media="(min-width: 768px)">
+          <img src="images/data-small.webp" alt="Merch Mania seller dashboard with sales data" width="450" height="650" loading="lazy">
+        </picture>
+      </div>
+
+      <div class="split-content">
+        <p class="eyebrow">Seller Tools</p>
+        <h2>Easy to Manage All Your Sales Data</h2>
+        <p>
+          Track listings, orders, views, messages, and sales from one organized dashboard built for sellers.
+        </p>
+        <a class="btn" href="#features">Read More</a>
+      </div>
+    </section>
+
+    <section class="split reverse section-animate">
+      <div class="split-content">
+        <p class="eyebrow">Responsive Design</p>
+        <h2>Shop and Sell from Any Device</h2>
+        <p>
+          Merch Mania is designed to work beautifully on phones, tablets, and desktops without losing content.
+        </p>
+        <a class="btn" href="#pricing">Read More</a>
+      </div>
+
+      <div class="phone small">
+        <picture>
+          <source srcset="images/responsive-large.webp" media="(min-width: 768px)">
+          <img src="images/responsive-small.webp" alt="Responsive Merch Mania app screens" width="450" height="650" loading="lazy">
+        </picture>
+      </div>
+    </section>
+
+    <section class="video section-animate" aria-labelledby="video-title">
+      <div>
+        <p class="eyebrow light">Tutorial</p>
+        <h2 id="video-title">Watch a Quick Tutorial</h2>
+        <button id="playBtn" type="button">Play Video</button>
+      </div>
+    </section>
+
+    <section id="pricing" class="section section-animate">
+      <div class="section-heading">
+        <p class="eyebrow">Pricing</p>
+        <h2>Choose Your Plan</h2>
+        <p class="intro">Pick the plan that works best for your merch business.</p>
+      </div>
+
+      <div class="cards pricing">
+        <article class="card price-card">
+          <h3>Starter</h3>
+          <p class="price">Free</p>
+          <p>Perfect for casual sellers getting started.</p>
+          <button type="button">Start Now</button>
+        </article>
+
+        <article class="card price-card featured">
+          <h3>Premium</h3>
+          <p class="price">$2.00</p>
+          <p>Great for sellers who want more visibility.</p>
+          <button type="button">Start Now</button>
+        </article>
+
+        <article class="card price-card">
+          <h3>Pro</h3>
+          <p class="price">$7.00</p>
+          <p>Best for serious brands and frequent sellers.</p>
+          <button type="button">Start Now</button>
+        </article>
+      </div>
+    </section>
+
+    <section id="review" class="section alt section-animate">
+      <div class="section-heading">
+        <p class="eyebrow">Review</p>
+        <h2>User Review</h2>
+        <blockquote class="quote">
+          “Merch Mania made it simple for me to turn my closet and custom designs into a real online shop.”
+        </blockquote>
+        <p><strong>– Maya Carter</strong></p>
+      </div>
+    </section>
+
+    <section class="cta section-animate">
+      <h2>Start Selling Your Merch Today</h2>
+      <a class="btn" href="#pricing">Download App</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>Copyright © 2026 Merch Mania. All rights reserved.</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
