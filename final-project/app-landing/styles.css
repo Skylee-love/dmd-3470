@@ -208,12 +208,11 @@ button:hover {
   color: white;
   background-image:
     linear-gradient(rgba(20, 23, 40, 0.78), rgba(20, 23, 40, 0.78)),
-    url("images/tutorial-bg.jpg");
+    url("assets/watch-tutorial-img.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
-
 
 .cta {
   padding: 90px 6%;
@@ -473,4 +472,14 @@ footer {
     height: 560px;
     right: -90px; 
   }
+}
+
+.responsive-phone {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
 }
